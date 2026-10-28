@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="case-study.css?v=40">
+  <link rel="stylesheet" href="case-study.css?v=42">
 </head>
 <body>
 
@@ -32,6 +32,7 @@
     <div class="nav-right-group">
       <nav class="nav-section-links">
         <a href="#overview">[ OVERVIEW ]</a>
+        <a href="#live-sandbox" class="nav-live-pill">[ LIVE APP DEMO ]</a>
         <a href="#functions">[ UX FUNCTIONS ]</a>
         <a href="#gallery">[ UI SHOWCASE ]</a>
       </nav>
@@ -221,6 +222,235 @@
       </div>
     </section>
 
+    <!-- Section 02.5: Live Interactive Vocational Portal Sandbox (SkillPro Institute) -->
+    <section id="live-sandbox" class="case-section">
+      <div class="section-hud-header">
+        <span class="section-index">LIVE INTERACTIVE SANDBOX // MULTI-CRITERIA MATRIX &amp; INLINE VALIDATOR</span>
+        <h2 class="section-title">INTERACTIVE SKILLPRO STUDENT PORTAL</h2>
+        <p class="section-lead">
+          Test the live SkillPro Institute portal components below: filter vocational programs simultaneously by Campus, Discipline, and Qualification Level, or switch to the Student Enrollment Form to experience real-time constructive micro-validation for Sri Lankan NIC and mobile formats.
+        </p>
+      </div>
+
+      <div id="skillpro-sandbox" class="interactive-sandbox-shell" data-sandbox="skillpro">
+        <div class="hud-corner top-left"></div>
+        <div class="hud-corner top-right"></div>
+        <div class="hud-corner bottom-left"></div>
+        <div class="hud-corner bottom-right"></div>
+
+        <!-- Terminal Top Bar -->
+        <div class="sandbox-topbar">
+          <div class="sandbox-terminal-left">
+            <div class="sandbox-window-dots">
+              <span class="sb-dot red"></span>
+              <span class="sb-dot amber"></span>
+              <span class="sb-dot green"></span>
+            </div>
+            <span class="sandbox-runtime-badge">PORTAL ENGINE: ONLINE</span>
+            <span class="sandbox-title-code">SKILLPRO_ACADEMIC_MATRIX // v2.8</span>
+          </div>
+
+          <div class="sandbox-controls-right">
+            <div class="sandbox-viewport-group" aria-label="Viewport Size">
+              <button type="button" class="sb-vp-btn active" data-vp="desktop">[ DESKTOP ]</button>
+              <button type="button" class="sb-vp-btn" data-vp="tablet">[ TABLET ]</button>
+              <button type="button" class="sb-vp-btn" data-vp="mobile">[ MOBILE ]</button>
+            </div>
+            <div class="sandbox-tab-group">
+              <button type="button" class="sb-tab-btn active" data-mode="app">[ LIVE INTERACTIVE APP ]</button>
+              <button type="button" class="sb-tab-btn" data-mode="code">[ COMPONENT CODE ]</button>
+            </div>
+            <button type="button" class="sb-reset-btn" data-action="reset-sandbox">[ &circlearrowright; REBOOT ]</button>
+          </div>
+        </div>
+
+        <!-- Module Sub-Navigation -->
+        <div class="sandbox-subnav">
+          <div class="sandbox-module-pills">
+            <button type="button" class="sb-module-btn active" data-skillmod="matrix">
+              <span>VIEW 01 // MULTI-CRITERIA COURSE MATRIX</span>
+              <span id="skill-match-badge" class="sb-badge-count">6 PROGRAMS</span>
+            </button>
+            <button type="button" class="sb-module-btn" data-skillmod="enrollment">
+              <span>VIEW 02 // INLINE VALIDATION ENROLLMENT FORM</span>
+            </button>
+          </div>
+          <div class="sandbox-telemetry-readout">
+            ACTIVE CAMPUSES: <strong>COLOMBO &bull; KANDY &bull; MATARA</strong> &bull; ENROLLED BATCHES: <strong id="skill-enrolled-count">0</strong>
+          </div>
+        </div>
+
+        <!-- Interactive Stage -->
+        <div class="sandbox-stage-outer">
+          <div class="sandbox-boot-overlay">
+            <div class="sb-boot-spinner"></div>
+            <div class="sb-boot-text">RESETTING COURSE MATRIX &amp; VALIDATOR...</div>
+          </div>
+
+          <div class="sandbox-viewport-frame">
+            <!-- MODE: LIVE APP -->
+            <div class="sb-mode-container active" data-mode-panel="app">
+
+              <!-- VIEW 01: MULTI-CRITERIA COURSE SEARCH MATRIX -->
+              <div class="sb-view-panel active" data-skill-panel="matrix">
+                <div class="sb-toolbar">
+                  <div class="sb-filter-group">
+                    <span class="sb-filter-label">SEARCH:</span>
+                    <input type="text" id="skill-search-input" class="sb-search-input" placeholder="Search course title or code..." style="min-width: 220px;">
+                  </div>
+
+                  <div class="sb-filter-group" id="skill-campus-chips">
+                    <span class="sb-filter-label">CAMPUS:</span>
+                    <button type="button" class="sb-chip active" data-campus="ALL">ALL CAMPUSES</button>
+                    <button type="button" class="sb-chip" data-campus="COLOMBO">COLOMBO</button>
+                    <button type="button" class="sb-chip" data-campus="KANDY">KANDY</button>
+                    <button type="button" class="sb-chip" data-campus="MATARA">MATARA</button>
+                  </div>
+
+                  <div class="sb-filter-group" id="skill-disc-chips">
+                    <span class="sb-filter-label">DISCIPLINE:</span>
+                    <button type="button" class="sb-chip active" data-disc="ALL">ALL FIELDS</button>
+                    <button type="button" class="sb-chip" data-disc="ICT &amp; AI">ICT &amp; AI</button>
+                    <button type="button" class="sb-chip" data-disc="MECHATRONICS">MECHATRONICS</button>
+                    <button type="button" class="sb-chip" data-disc="CULINARY &amp; HOSPITALITY">HOSPITALITY</button>
+                  </div>
+                </div>
+
+                <div id="skill-courses-grid" class="sb-cards-grid"></div>
+              </div>
+
+              <!-- VIEW 02: HUMAN-CENTERED INLINE VALIDATION ENROLLMENT FORM -->
+              <div class="sb-view-panel" data-skill-panel="enrollment">
+                <div class="sb-form-layout">
+                  <div class="sb-calc-panel">
+                    <div class="sb-card-tag">PROACTIVE INLINE MICRO-FEEDBACK</div>
+                    <h3 class="sb-card-title">STUDENT BATCH REGISTRATION</h3>
+                    <p class="sb-card-desc">
+                      Type into the fields below to test real-time regex validation. Notice how constructive format hints guide the student before form submission.
+                    </p>
+
+                    <div class="sb-field-group">
+                      <label class="sb-field-label" for="skill-input-name">
+                        <span>01 // STUDENT FULL NAME</span>
+                        <span id="skill-status-name" class="sb-card-tag">REQUIRED</span>
+                      </label>
+                      <input type="text" id="skill-input-name" class="sb-text-input" placeholder="e.g. Kasun Perera" value="Poorna Hasaranga">
+                      <div id="skill-msg-name" class="sb-validation-msg valid">&#10003; Verified full legal name format.</div>
+                    </div>
+
+                    <div class="sb-field-group">
+                      <label class="sb-field-label" for="skill-input-nic">
+                        <span>02 // NATIONAL IDENTITY CARD (SRI LANKA NIC)</span>
+                        <span id="skill-status-nic" class="sb-card-tag">LIVE REGEX</span>
+                      </label>
+                      <input type="text" id="skill-input-nic" class="sb-text-input" placeholder="e.g. 200214501234 or 991234567V" value="200214501234">
+                      <div id="skill-msg-nic" class="sb-validation-msg valid">&#10003; Valid 12-digit modern Sri Lankan NIC detected.</div>
+                    </div>
+
+                    <div class="sb-field-group">
+                      <label class="sb-field-label" for="skill-input-phone">
+                        <span>03 // MOBILE CONTACT NUMBER</span>
+                        <span id="skill-status-phone" class="sb-card-tag">SMS GATEWAY</span>
+                      </label>
+                      <input type="text" id="skill-input-phone" class="sb-text-input" placeholder="e.g. 0771234567 or +94771234567" value="0774589120">
+                      <div id="skill-msg-phone" class="sb-validation-msg valid">&#10003; Valid Sri Lankan mobile carrier format.</div>
+                    </div>
+
+                    <div class="sb-field-group">
+                      <label class="sb-field-label" for="skill-select-course">
+                        <span>04 // SELECTED VOCATIONAL PROGRAM</span>
+                      </label>
+                      <select id="skill-select-course" class="sb-select-input">
+                        <option value="SP-101">SP-101 // Full-Stack Cloud &amp; UI Engineering (NVQ Level 5 - Colombo)</option>
+                        <option value="SP-102">SP-102 // Industrial Robotics &amp; PLC Mechatronics (NVQ Level 5 - Kandy)</option>
+                        <option value="SP-103">SP-103 // Applied Cybersecurity &amp; Network Defense (NVQ Level 4 - Colombo)</option>
+                        <option value="SP-104">SP-104 // International Patisserie &amp; Hospitality Mgmt (Certificate - Matara)</option>
+                        <option value="SP-105">SP-105 // Renewable Solar Grid &amp; Smart Automation (NVQ Level 4 - Kandy)</option>
+                        <option value="SP-106">SP-106 // Enterprise Data Analytics &amp; Python AI (Diploma - Matara)</option>
+                      </select>
+                    </div>
+
+                    <button type="button" id="skill-submit-btn" class="sb-action-btn" style="width:100%; margin-top:6px;">
+                      [ SUBMIT VERIFIED ENROLLMENT ]
+                    </button>
+                  </div>
+
+                  <div class="sb-calc-panel">
+                    <div class="sb-card-tag">LIVE VALIDATION TELEMETRY</div>
+                    <h3 class="sb-card-title">ENROLLMENT DOSSIER PREVIEW</h3>
+                    <p class="sb-card-desc">
+                      Real-time readiness score calculated from inline field validators:
+                    </p>
+
+                    <div class="sb-metric-bar-box">
+                      <div class="sb-metric-bar-top">
+                        <span>FORM VALIDATION READINESS</span>
+                        <strong id="skill-readiness-pct" style="color:#00ff9d;">100% READY</strong>
+                      </div>
+                      <div class="sb-progress-track">
+                        <div id="skill-readiness-bar" class="sb-progress-fill" style="width: 100%;"></div>
+                      </div>
+                    </div>
+
+                    <div class="sb-cart-summary">
+                      <div class="sb-summary-row"><span>CANDIDATE:</span><strong id="skill-preview-name">Poorna Hasaranga</strong></div>
+                      <div class="sb-summary-row"><span>NIC VERIFICATION:</span><strong id="skill-preview-nic" style="color:#00ff9d;">200214501234 (VALID)</strong></div>
+                      <div class="sb-summary-row"><span>SMS CONTACT:</span><strong id="skill-preview-phone">0774589120</strong></div>
+                      <div class="sb-summary-row total"><span>PROGRAM CODE:</span><strong id="skill-preview-course">SP-101</strong></div>
+                    </div>
+
+                    <div id="skill-receipt-box" class="sb-validation-msg valid" style="display:none; margin-top:8px;"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- MODE: COMPONENT SOURCE CODE -->
+            <div class="sb-mode-container" data-mode-panel="code" style="display:none;">
+              <div class="sb-code-viewer">
+                <div class="sb-code-header">
+                  <span>FILE: src/validators/SkillProEnrollmentValidator.js</span>
+                  <span>LANGUAGE: ES6 JAVASCRIPT // MULTI-CRITERIA FILTER &amp; REGEX ENGINE</span>
+                </div>
+                <pre class="sb-code-pre"><code>// SkillPro Institute — Multi-Criteria Course Matrix &amp; Inline NIC Validator
+const SL_NIC_OLD_REGEX = /^[0-9]{9}[vVxX]$/;
+const SL_NIC_NEW_REGEX = /^[0-9]{12}$/;
+const SL_MOBILE_REGEX  = /^(?:0|94|\+94)?7[0-9]{8}$/;
+
+export function validateSriLankanNIC(input) {
+  const val = input.trim();
+  if (!val) return { valid: false, message: 'Enter 9-digit (e.g. 991234567V) or 12-digit NIC.' };
+  if (SL_NIC_NEW_REGEX.test(val)) {
+    return { valid: true, message: '✓ Valid 12-digit modern Sri Lankan NIC detected.' };
+  }
+  if (SL_NIC_OLD_REGEX.test(val)) {
+    return { valid: true, message: '✓ Valid 9-digit legacy Sri Lankan NIC detected.' };
+  }
+  return { valid: false, message: 'Format hint: Use 12 digits (2002XXXXXXXX) or 9 digits + V/X.' };
+}
+
+export function filterCourseMatrix(courses, { query, campus, discipline }) {
+  return courses.filter(c =&gt; {
+    const matchQuery = !query || c.title.toLowerCase().includes(query) || c.code.toLowerCase().includes(query);
+    const matchCampus = campus === 'ALL' || c.campus === campus;
+    const matchDisc = discipline === 'ALL' || c.discipline === discipline;
+    return matchQuery &amp;&amp; matchCampus &amp;&amp; matchDisc;
+  });
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sandbox Footer Status Bar -->
+        <div class="sandbox-footer-bar">
+          <span id="skill-sandbox-toast" class="sb-toast-status">&#9679; MATRIX ONLINE // FILTER COURSES BY CAMPUS OR CLICK &ldquo;ENROLL IN BATCH&rdquo; TO PRE-FILL REGISTRATION</span>
+          <span>ACCESSIBILITY: WCAG AAA HIGH-CONTRAST VERIFIED</span>
+        </div>
+      </div>
+    </section>
+
     <!-- Section 03: UI Showcase & Screen Gallery -->
     <section id="gallery" class="case-section">
       <div class="section-hud-header">
@@ -345,6 +575,6 @@
     </div>
   </div>
 
-  <script src="case-study.js?v=40"></script>
+  <script src="case-study.js?v=42"></script>
 </body>
 </html>

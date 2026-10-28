@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="case-study.css?v=40">
+  <link rel="stylesheet" href="case-study.css?v=42">
 </head>
 <body>
 
@@ -32,6 +32,7 @@
     <div class="nav-right-group">
       <nav class="nav-section-links">
         <a href="#overview">[ OVERVIEW ]</a>
+        <a href="#live-sandbox" class="nav-live-pill">[ LIVE APP DEMO ]</a>
         <a href="#functions">[ UX FUNCTIONS ]</a>
         <a href="#gallery">[ UI SHOWCASE ]</a>
       </nav>
@@ -221,6 +222,188 @@
       </div>
     </section>
 
+    <!-- Section 02.5: Live Interactive Dual-Portal Sandbox (Cozy Comfort) -->
+    <section id="live-sandbox" class="case-section">
+      <div class="section-hud-header">
+        <span class="section-index">LIVE INTERACTIVE SANDBOX // DUAL-PORTAL SYNCHRONIZED ENGINE</span>
+        <h2 class="section-title">INTERACTIVE STOREFRONT &amp; WAREHOUSE OPS</h2>
+        <p class="section-lead">
+          Experience the synchronized dual-portal architecture in real time: add blankets to your cart and place orders in the Customer Storefront, then switch to the Distributor Warehouse Console to restock inventory and watch live stock badges update instantaneously across both portals.
+        </p>
+      </div>
+
+      <div id="cozy-sandbox" class="interactive-sandbox-shell" data-sandbox="cozycomfort">
+        <div class="hud-corner top-left"></div>
+        <div class="hud-corner top-right"></div>
+        <div class="hud-corner bottom-left"></div>
+        <div class="hud-corner bottom-right"></div>
+
+        <!-- Terminal Top Bar -->
+        <div class="sandbox-topbar">
+          <div class="sandbox-terminal-left">
+            <div class="sandbox-window-dots">
+              <span class="sb-dot red"></span>
+              <span class="sb-dot amber"></span>
+              <span class="sb-dot green"></span>
+            </div>
+            <span class="sandbox-runtime-badge">SYNC ENGINE: ONLINE</span>
+            <span class="sandbox-title-code">COZY_COMFORT_COMMERCE // v3.1</span>
+          </div>
+
+          <div class="sandbox-controls-right">
+            <div class="sandbox-viewport-group" aria-label="Viewport Size">
+              <button type="button" class="sb-vp-btn active" data-vp="desktop">[ DESKTOP ]</button>
+              <button type="button" class="sb-vp-btn" data-vp="tablet">[ TABLET ]</button>
+              <button type="button" class="sb-vp-btn" data-vp="mobile">[ MOBILE ]</button>
+            </div>
+            <div class="sandbox-tab-group">
+              <button type="button" class="sb-tab-btn active" data-mode="app">[ LIVE INTERACTIVE APP ]</button>
+              <button type="button" class="sb-tab-btn" data-mode="code">[ COMPONENT CODE ]</button>
+            </div>
+            <button type="button" class="sb-reset-btn" data-action="reset-sandbox">[ &circlearrowright; REBOOT ]</button>
+          </div>
+        </div>
+
+        <!-- Sub-Navigation: Switch between Customer Storefront & Warehouse Ops -->
+        <div class="sandbox-subnav">
+          <div class="sandbox-module-pills">
+            <button type="button" class="sb-module-btn active" data-cozymod="storefront">
+              <span>PORTAL 01 // CUSTOMER STOREFRONT &amp; CART</span>
+              <span id="cozy-cart-badge" class="sb-badge-count">0 IN CART</span>
+            </button>
+            <button type="button" class="sb-module-btn" data-cozymod="warehouse">
+              <span>PORTAL 02 // DISTRIBUTOR WAREHOUSE CONSOLE</span>
+              <span id="cozy-lowstock-badge" class="sb-badge-count">1 LOW STOCK</span>
+            </button>
+          </div>
+          <div class="sandbox-telemetry-readout">
+            TOTAL WAREHOUSE UNITS: <strong id="cozy-total-units">33</strong> &bull; ORDERS DISPATCHED: <strong id="cozy-orders-count">0</strong>
+          </div>
+        </div>
+
+        <!-- Interactive Stage -->
+        <div class="sandbox-stage-outer">
+          <div class="sandbox-boot-overlay">
+            <div class="sb-boot-spinner"></div>
+            <div class="sb-boot-text">RE-SYNCHRONIZING DUAL-PORTAL INVENTORY...</div>
+          </div>
+
+          <div class="sandbox-viewport-frame">
+            <!-- MODE: LIVE APP -->
+            <div class="sb-mode-container active" data-mode-panel="app">
+
+              <!-- PORTAL 01: CUSTOMER STOREFRONT + LIVE CART -->
+              <div class="sb-view-panel active" data-cozy-panel="storefront">
+                <div class="sb-toolbar">
+                  <div class="sb-filter-group" id="cozy-material-chips">
+                    <span class="sb-filter-label">COLLECTION FILTER:</span>
+                    <button type="button" class="sb-chip active" data-mat="ALL">ALL BLANKETS (4)</button>
+                    <button type="button" class="sb-chip" data-mat="MERINO WOOL">MERINO WOOL</button>
+                    <button type="button" class="sb-chip" data-mat="WEIGHTED KNIT">WEIGHTED KNIT</button>
+                    <button type="button" class="sb-chip" data-mat="ORGANIC BAMBOO">ORGANIC BAMBOO</button>
+                  </div>
+                </div>
+
+                <div class="sb-store-layout">
+                  <div id="cozy-products-grid" class="sb-cards-grid"></div>
+
+                  <aside class="sb-cart-drawer">
+                    <div class="sb-cart-header">
+                      <span class="sb-cart-title">LIVE SHOPPING CART</span>
+                      <span id="cozy-cart-items-count" class="sb-card-tag">0 ITEMS</span>
+                    </div>
+                    <div id="cozy-cart-list" class="sb-cart-items"></div>
+                    <div class="sb-cart-summary">
+                      <div class="sb-summary-row"><span>SUBTOTAL:</span><strong id="cozy-subtotal">$0.00</strong></div>
+                      <div class="sb-summary-row"><span>EXPRESS COURIER:</span><strong id="cozy-shipping">$0.00</strong></div>
+                      <div class="sb-summary-row total"><span>ORDER TOTAL:</span><strong id="cozy-total">$0.00</strong></div>
+                    </div>
+                    <button type="button" id="cozy-checkout-btn" class="sb-action-btn" style="width:100%; margin-top:12px;" disabled>
+                      [ PLACE ORDER &amp; SYNC WAREHOUSE ]
+                    </button>
+                    <div id="cozy-order-feedback" class="sb-validation-msg valid" style="display:none; margin-top:10px;"></div>
+                  </aside>
+                </div>
+              </div>
+
+              <!-- PORTAL 02: DISTRIBUTOR WAREHOUSE OPERATIONS CONSOLE -->
+              <div class="sb-view-panel" data-cozy-panel="warehouse">
+                <div class="sb-toolbar">
+                  <div class="sb-filter-group" id="cozy-ops-filter">
+                    <span class="sb-filter-label">INVENTORY HEALTH FILTER:</span>
+                    <button type="button" class="sb-chip active" data-status="ALL">ALL SKUS</button>
+                    <button type="button" class="sb-chip" data-status="IN STOCK">HEALTHY</button>
+                    <button type="button" class="sb-chip" data-status="LOW STOCK">LOW STOCK / ALERT</button>
+                  </div>
+                  <button type="button" id="cozy-restock-all-btn" class="sb-action-btn">
+                    [ +10 RESTOCK ALL SKUS ]
+                  </button>
+                </div>
+
+                <div class="sb-ops-table-wrap">
+                  <table class="sb-ops-table">
+                    <thead>
+                      <tr>
+                        <th>SKU CODE</th>
+                        <th>PRODUCT NAME</th>
+                        <th>MATERIAL WEAVE</th>
+                        <th>UNIT PRICE</th>
+                        <th>LIVE STOCK</th>
+                        <th>HEALTH STATUS</th>
+                        <th>OPERATOR STOCK CONTROL</th>
+                      </tr>
+                    </thead>
+                    <tbody id="cozy-warehouse-tbody"></tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- MODE: COMPONENT SOURCE CODE -->
+            <div class="sb-mode-container" data-mode-panel="code" style="display:none;">
+              <div class="sb-code-viewer">
+                <div class="sb-code-header">
+                  <span>FILE: src/store/DualPortalInventorySync.js</span>
+                  <span>LANGUAGE: ES6 JAVASCRIPT // SHARED STOREFRONT &amp; WAREHOUSE STATE</span>
+                </div>
+                <pre class="sb-code-pre"><code>// Cozy Comfort — Synchronized Storefront Cart &amp; Distributor Warehouse Store
+export class CozyInventoryEngine {
+  constructor(initialCatalog) {
+    this.catalog = structuredClone(initialCatalog);
+    this.cart = new Map(); // sku -&gt; quantity
+    this.ordersDispatched = 0;
+  }
+
+  getStockStatus(stock) {
+    if (stock &lt;= 0) return { label: 'OUT OF STOCK', css: 'out-stock' };
+    if (stock &lt;= 4) return { label: 'LOW STOCK (' + stock + ' LEFT)', css: 'low-stock' };
+    return { label: 'IN STOCK (' + stock + ' UNITS)', css: 'in-stock' };
+  }
+
+  commitCustomerOrder() {
+    for (const [sku, qty] of this.cart.entries()) {
+      const item = this.catalog.find(p =&gt; p.sku === sku);
+      if (item &amp;&amp; item.stock &gt;= qty) item.stock -= qty;
+    }
+    this.cart.clear();
+    this.ordersDispatched += 1;
+    return this.catalog;
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sandbox Footer Status Bar -->
+        <div class="sandbox-footer-bar">
+          <span id="cozy-sandbox-toast" class="sb-toast-status">&#9679; LIVE SYNC READY // ADD ITEMS TO CART OR SWITCH TO PORTAL 02 TO ADJUST WAREHOUSE STOCK</span>
+          <span>ARCHITECTURE: BIDIRECTIONAL STATE BINDING</span>
+        </div>
+      </div>
+    </section>
+
     <!-- Section 03: UI Showcase & Screen Gallery -->
     <section id="gallery" class="case-section">
       <div class="section-hud-header">
@@ -379,6 +562,6 @@
     </div>
   </div>
 
-  <script src="case-study.js?v=40"></script>
+  <script src="case-study.js?v=42"></script>
 </body>
 </html>

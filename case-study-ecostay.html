@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="case-study.css?v=40">
+  <link rel="stylesheet" href="case-study.css?v=42">
 </head>
 <body>
 
@@ -32,6 +32,7 @@
     <div class="nav-right-group">
       <nav class="nav-section-links">
         <a href="#overview">[ OVERVIEW ]</a>
+        <a href="#live-sandbox" class="nav-live-pill">[ LIVE APP DEMO ]</a>
         <a href="#functions">[ UX FUNCTIONS ]</a>
         <a href="#gallery">[ UI SHOWCASE ]</a>
       </nav>
@@ -262,6 +263,284 @@
       </div>
     </section>
 
+    <!-- Section 02.5: Live Interactive App Sandbox (EcoStay Retreat) -->
+    <section id="live-sandbox" class="case-section">
+      <div class="section-hud-header">
+        <span class="section-index">LIVE INTERACTIVE SANDBOX // WORKING APPLICATION ENGINE</span>
+        <h2 class="section-title">INTERACTIVE ECOSTAY SANCTUARY APP</h2>
+        <p class="section-lead">
+          Interact directly with the functional EcoStay Retreat components below. Filter off-grid habitats in real time, schedule guided alpine expeditions, calculate your stay&rsquo;s solar &amp; carbon offset, or inspect the underlying component source code.
+        </p>
+      </div>
+
+      <div id="ecostay-sandbox" class="interactive-sandbox-shell" data-sandbox="ecostay">
+        <div class="hud-corner top-left"></div>
+        <div class="hud-corner top-right"></div>
+        <div class="hud-corner bottom-left"></div>
+        <div class="hud-corner bottom-right"></div>
+
+        <!-- Terminal Top Bar -->
+        <div class="sandbox-topbar">
+          <div class="sandbox-terminal-left">
+            <div class="sandbox-window-dots">
+              <span class="sb-dot red"></span>
+              <span class="sb-dot amber"></span>
+              <span class="sb-dot green"></span>
+            </div>
+            <span class="sandbox-runtime-badge">RUNTIME: ACTIVE</span>
+            <span class="sandbox-title-code">ECOSTAY_SANCTUARY_OS // v2.4</span>
+          </div>
+
+          <div class="sandbox-controls-right">
+            <div class="sandbox-viewport-group" aria-label="Viewport Size">
+              <button type="button" class="sb-vp-btn active" data-vp="desktop">[ DESKTOP ]</button>
+              <button type="button" class="sb-vp-btn" data-vp="tablet">[ TABLET ]</button>
+              <button type="button" class="sb-vp-btn" data-vp="mobile">[ MOBILE 19.5:9 ]</button>
+            </div>
+            <div class="sandbox-tab-group">
+              <button type="button" class="sb-tab-btn active" data-mode="app">[ LIVE INTERACTIVE APP ]</button>
+              <button type="button" class="sb-tab-btn" data-mode="code">[ COMPONENT CODE ]</button>
+            </div>
+            <button type="button" class="sb-reset-btn" data-action="reset-sandbox">[ &circlearrowright; REBOOT ]</button>
+          </div>
+        </div>
+
+        <!-- Module Sub-Navigation -->
+        <div class="sandbox-subnav">
+          <div class="sandbox-module-pills">
+            <button type="button" class="sb-module-btn active" data-ecomod="habitats">
+              <span>01 // HABITAT BROWSER</span>
+              <span id="eco-count-badge" class="sb-badge-count">6 UNITS</span>
+            </button>
+            <button type="button" class="sb-module-btn" data-ecomod="expeditions">
+              <span>02 // EXPEDITION SCHEDULER</span>
+            </button>
+            <button type="button" class="sb-module-btn" data-ecomod="calculator">
+              <span>03 // SOLAR &amp; CARBON CALCULATOR</span>
+            </button>
+          </div>
+          <div id="eco-telemetry-summary" class="sandbox-telemetry-readout">
+            RESERVATIONS: <strong id="eco-reserved-count">0</strong> &bull; EST. OFFSET: <strong id="eco-header-offset">42 kg CO₂</strong>
+          </div>
+        </div>
+
+        <!-- Interactive Stage -->
+        <div class="sandbox-stage-outer">
+          <div class="sandbox-boot-overlay">
+            <div class="sb-boot-spinner"></div>
+            <div class="sb-boot-text">REBOOTING ECOSTAY SANDBOX STATE...</div>
+          </div>
+
+          <div class="sandbox-viewport-frame">
+            <!-- MODE: LIVE APP -->
+            <div class="sb-mode-container active" data-mode-panel="app">
+
+              <!-- VIEW 1: HABITAT BROWSER & DYNAMIC FILTER CHIPS -->
+              <div class="sb-view-panel active" data-eco-panel="habitats">
+                <div class="sb-toolbar">
+                  <div class="sb-filter-group" id="eco-category-chips">
+                    <span class="sb-filter-label">HABITAT TYPE:</span>
+                    <button type="button" class="sb-chip active" data-cat="ALL">ALL HABITATS (6)</button>
+                    <button type="button" class="sb-chip" data-cat="GEO-POD">GEO-PODS (2)</button>
+                    <button type="button" class="sb-chip" data-cat="CEDAR CABIN">CEDAR CABINS (2)</button>
+                    <button type="button" class="sb-chip" data-cat="CANOPY LODGE">CANOPY LODGES (2)</button>
+                  </div>
+
+                  <div class="sb-filter-group">
+                    <span class="sb-filter-label">STAY DURATION:</span>
+                    <div class="sb-stepper">
+                      <button type="button" class="sb-step-btn" id="eco-nights-minus">&minus;</button>
+                      <span class="sb-step-val" id="eco-nights-val">3 NIGHTS</span>
+                      <button type="button" class="sb-step-btn" id="eco-nights-plus">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="eco-habitats-grid" class="sb-cards-grid"></div>
+              </div>
+
+              <!-- VIEW 2: EXPEDITION PASS SCHEDULER -->
+              <div class="sb-view-panel" data-eco-panel="expeditions">
+                <div class="sb-eco-calc-grid">
+                  <div class="sb-calc-panel">
+                    <div class="sb-card-tag">STEP 01 // CONFIGURE WILDERNESS PASS</div>
+                    <h3 class="sb-card-title">SELECT GUIDED EXPEDITION</h3>
+                    <div class="sb-field-group">
+                      <label class="sb-field-label" for="eco-exp-select">TRAIL / WORKSHOP MODULE</label>
+                      <select id="eco-exp-select" class="sb-select-input">
+                        <option value="summit" data-price="65" data-time="06:00 AM - 11:30 AM" data-elev="2,140m Alpine Ridge">Guided Alpine Summit Trail ($65 / guest)</option>
+                        <option value="birds" data-price="45" data-time="05:30 AM - 08:30 AM" data-elev="1,420m Cloud Forest">Dawn Bird-Watching Sanctuary ($45 / guest)</option>
+                        <option value="zerowaste" data-price="55" data-time="02:00 PM - 05:00 PM" data-elev="1,600m Solar Conservatory">Zero-Waste Permaculture Workshop ($55 / guest)</option>
+                      </select>
+                    </div>
+
+                    <div class="sb-field-group">
+                      <span class="sb-field-label">PREFERRED EXPEDITION SLOT</span>
+                      <div class="sb-filter-group" id="eco-date-pills">
+                        <button type="button" class="sb-chip active" data-date="TOMORROW // DAWN">TOMORROW // DAWN</button>
+                        <button type="button" class="sb-chip" data-date="FRI // MORNING">FRI // MORNING</button>
+                        <button type="button" class="sb-chip" data-date="SUN // GOLDEN HOUR">SUN // GOLDEN HOUR</button>
+                      </div>
+                    </div>
+
+                    <div class="sb-field-group">
+                      <span class="sb-field-label">BOUNDED PARTY SIZE (MAX 8 GUESTS PER RANGER)</span>
+                      <div class="sb-stepper">
+                        <button type="button" class="sb-step-btn" id="eco-guests-minus">&minus;</button>
+                        <span class="sb-step-val" id="eco-guests-val">2 GUESTS</span>
+                        <button type="button" class="sb-step-btn" id="eco-guests-plus">+</button>
+                      </div>
+                    </div>
+
+                    <div class="sb-field-group">
+                      <span class="sb-field-label">INCLUDED GEAR CHECKLIST (TAP TO TOGGLE)</span>
+                      <div class="sb-filter-group" id="eco-gear-pills">
+                        <button type="button" class="sb-chip active" data-gear="Solar GPS Beacon">&#10003; Solar GPS Beacon</button>
+                        <button type="button" class="sb-chip active" data-gear="Insulated Bamboo Flask">&#10003; Insulated Bamboo Flask</button>
+                        <button type="button" class="sb-chip" data-gear="Alpine Trekking Poles">+ Alpine Trekking Poles</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="sb-calc-panel">
+                    <div class="sb-card-tag">STEP 02 // LIVE PASS DISPATCH</div>
+                    <h3 class="sb-card-title" id="eco-pass-title">Guided Alpine Summit Trail</h3>
+                    <p class="sb-card-desc">
+                      Verified small-group wilderness pass with certified eco-ranger escort and zero-trace trail telemetry.
+                    </p>
+                    <div class="sb-cart-summary">
+                      <div class="sb-summary-row"><span>SCHEDULED SLOT:</span><strong id="eco-pass-date">TOMORROW // DAWN</strong></div>
+                      <div class="sb-summary-row"><span>WINDOW:</span><strong id="eco-pass-window">06:00 AM - 11:30 AM</strong></div>
+                      <div class="sb-summary-row"><span>ELEVATION SECTOR:</span><strong id="eco-pass-elev">2,140m Alpine Ridge</strong></div>
+                      <div class="sb-summary-row"><span>PARTY SIZE:</span><strong id="eco-pass-guests">2 Guests</strong></div>
+                      <div class="sb-summary-row total"><span>TOTAL PASS FEE:</span><strong id="eco-pass-total">$130</strong></div>
+                    </div>
+                    <button type="button" id="eco-book-pass-btn" class="sb-action-btn" style="width:100%; margin-top:8px;">
+                      [ CONFIRM EXPEDITION PASS ]
+                    </button>
+                    <div id="eco-pass-confirmation" class="sb-validation-msg valid" style="display:none;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- VIEW 3: INTERACTIVE SUSTAINABILITY & SOLAR CALCULATOR -->
+              <div class="sb-view-panel" data-eco-panel="calculator">
+                <div class="sb-eco-calc-grid">
+                  <div class="sb-calc-panel">
+                    <div class="sb-card-tag">ECO-TELEMETRY INPUTS</div>
+                    <h3 class="sb-card-title">SANCTUARY IMPACT SIMULATOR</h3>
+                    <p class="sb-card-desc">
+                      Adjust your stay duration and conservation pledges to compute real-time off-grid solar generation and carbon savings compared to conventional resorts.
+                    </p>
+
+                    <div class="sb-range-row">
+                      <div class="sb-range-header">
+                        <span>STAY DURATION</span>
+                        <strong id="eco-calc-nights-label">4 NIGHTS</strong>
+                      </div>
+                      <input type="range" id="eco-calc-nights" class="sb-range-slider" min="1" max="14" value="4">
+                    </div>
+
+                    <div class="sb-field-group">
+                      <span class="sb-field-label">ARRIVAL TRANSPORT MODE</span>
+                      <div class="sb-filter-group" id="eco-transport-chips">
+                        <button type="button" class="sb-chip active" data-mult="1.35">EV SHUTTLE (+35% OFFSET)</button>
+                        <button type="button" class="sb-chip" data-mult="1.2">SCENIC RAIL (+20% OFFSET)</button>
+                        <button type="button" class="sb-chip" data-mult="1.0">HYBRID VEHICLE (BASE)</button>
+                      </div>
+                    </div>
+
+                    <div class="sb-field-group">
+                      <span class="sb-field-label">ACTIVE GUEST PLEDGES</span>
+                      <div class="sb-filter-group" id="eco-pledge-chips">
+                        <button type="button" class="sb-chip active" data-bonus="18">&#10003; Zero Single-Use Plastics</button>
+                        <button type="button" class="sb-chip active" data-bonus="24">&#10003; Rainwater Closed-Loop</button>
+                        <button type="button" class="sb-chip" data-bonus="30">+ Native Reforestation (+1 Tree)</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="sb-calc-panel">
+                    <div class="sb-card-tag">REAL-TIME CONSERVATION METRICS</div>
+                    <h3 class="sb-card-title">PROJECTED POSITIVE IMPACT</h3>
+
+                    <div class="sb-metric-bar-box">
+                      <div class="sb-metric-bar-top">
+                        <span>CARBON FOOTPRINT OFFSET</span>
+                        <strong id="eco-metric-co2" style="color:#00ff9d;">98 kg CO₂</strong>
+                      </div>
+                      <div class="sb-progress-track">
+                        <div id="eco-bar-co2" class="sb-progress-fill" style="width: 62%;"></div>
+                      </div>
+                    </div>
+
+                    <div class="sb-metric-bar-box">
+                      <div class="sb-metric-bar-top">
+                        <span>100% OFF-GRID SOLAR GENERATED</span>
+                        <strong id="eco-metric-solar" style="color:#00ffff;">74 kWh</strong>
+                      </div>
+                      <div class="sb-progress-track">
+                        <div id="eco-bar-solar" class="sb-progress-fill" style="width: 54%;"></div>
+                      </div>
+                    </div>
+
+                    <div class="sb-metric-bar-box">
+                      <div class="sb-metric-bar-top">
+                        <span>ALPINE SPRING WATER CONSERVED</span>
+                        <strong id="eco-metric-water" style="color:#00ff9d;">640 Liters</strong>
+                      </div>
+                      <div class="sb-progress-track">
+                        <div id="eco-bar-water" class="sb-progress-fill" style="width: 70%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- MODE: COMPONENT SOURCE CODE -->
+            <div class="sb-mode-container" data-mode-panel="code" style="display:none;">
+              <div class="sb-code-viewer">
+                <div class="sb-code-header">
+                  <span>FILE: src/components/HabitatFilterEngine.js</span>
+                  <span>LANGUAGE: ES6 JAVASCRIPT // REACTIVE UI STATE</span>
+                </div>
+                <pre class="sb-code-pre"><code>// EcoStay Retreat — Reactive Habitat Filter &amp; Solar Offset Engine
+const HABITAT_CATALOG = [
+  { id: 'H-01', name: 'Aether Alpine Geo-Pod', category: 'GEO-POD', rate: 240, solarKwh: 18.5, rating: '99% OFF-GRID', units: 2 },
+  { id: 'H-02', name: 'Solstice Glass Geo-Dome', category: 'GEO-POD', rate: 275, solarKwh: 21.0, rating: '100% SOLAR', units: 1 },
+  { id: 'H-03', name: 'Whispering Pine Cedar Cabin', category: 'CEDAR CABIN', rate: 310, solarKwh: 24.0, rating: 'ZERO-WASTE', units: 3 },
+  { id: 'H-04', name: 'Nordic Timber Sanctuary', category: 'CEDAR CABIN', rate: 340, solarKwh: 26.5, rating: 'RAINWATER LOOP', units: 2 },
+  { id: 'H-05', name: 'Cloudline Treetop Lodge', category: 'CANOPY LODGE', rate: 390, solarKwh: 31.0, rating: 'NET-POSITIVE', units: 2 },
+  { id: 'H-06', name: 'Emerald Canopy Sky-Suite', category: 'CANOPY LODGE', rate: 420, solarKwh: 34.0, rating: 'CARBON NEGATIVE', units: 1 }
+];
+
+export function filterHabitatsAndComputeImpact({ activeCategory, stayNights, reservedIds }) {
+  const visibleHabitats = HABITAT_CATALOG.filter(item =&gt;
+    activeCategory === 'ALL' || item.category === activeCategory
+  );
+
+  return visibleHabitats.map(habitat =&gt; ({
+    ...habitat,
+    totalStayCost: habitat.rate * stayNights,
+    estimatedCo2SavedKg: Math.round(habitat.solarKwh * stayNights * 0.82),
+    isReserved: reservedIds.has(habitat.id)
+  }));
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sandbox Footer Status Bar -->
+        <div class="sandbox-footer-bar">
+          <span id="eco-sandbox-toast" class="sb-toast-status">&#9679; READY // CLICK ANY HABITAT FILTER CHIP OR RESERVE BUTTON TO TEST LIVE STATE</span>
+          <span>VIEWPORT: REACTIVE SANDBOX CONTAINER</span>
+        </div>
+      </div>
+    </section>
+
     <!-- Section 03: UI Showcase & Screen Gallery -->
     <section id="gallery" class="case-section">
       <div class="section-hud-header">
@@ -428,6 +707,6 @@
     </div>
   </div>
 
-  <script src="case-study.js?v=40"></script>
+  <script src="case-study.js?v=42"></script>
 </body>
 </html>
