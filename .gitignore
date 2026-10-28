@@ -1,0 +1,23 @@
+# macOS & Editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Local logs & temporary test scripts
+server.log
+*.log
+test_click.js
+test_lines.js
+
+# Legacy unused versions
+astronaut_v4.js
+style.css
+
+# Unreferenced raw TIFF & intermediate extracted images (~230MB)
+*.tif
+*.tiff
+assets/projects/*/image*.*
+assets/projects/cozycomfort/cozy_comfort_demo.webp
+assets/projects/cozycomfort/Order*
+assets/projects/cozycomfort/Customer*
+

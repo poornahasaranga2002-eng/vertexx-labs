@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoStay Retreat | Mobile UI/UX Case Study | Vertexx Labs</title>
+  <meta name="description" content="UI/UX case study for EcoStay Retreat, a mobile sanctuary booking and eco-tourism app featuring dynamic filtering, intuitive booking flows, and sustainability tracking.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="case-study.css?v=40">
+</head>
+<body>
+
+  <!-- 3D Cosmic Space Starfield Canvas (Matching Main Page) -->
+  <canvas id="space-canvas"></canvas>
+
+  <!-- Fixed Top HUD Navigation -->
+  <header class="case-nav">
+    <a href="index.html#projects" class="nav-back-btn">
+      <span>&larr; RETURN TO VERTEXX LABS</span>
+    </a>
+    
+    <div class="nav-dossier-badge">
+      <span class="blink-dot"></span>
+      <span>PROJECT // 01 OF 03 &bull; ECOSTAY RETREAT</span>
+    </div>
+
+    <div class="nav-right-group">
+      <nav class="nav-section-links">
+        <a href="#overview">[ OVERVIEW ]</a>
+        <a href="#functions">[ UX FUNCTIONS ]</a>
+        <a href="#gallery">[ UI SHOWCASE ]</a>
+      </nav>
+
+      <!-- HUD Audio Toggle Control -->
+      <button id="case-audio-toggle" class="case-audio-btn playing" aria-label="Toggle Audio" title="Toggle audio soundtrack">
+        <div class="case-visualizer-bars">
+          <div class="case-bar"></div>
+          <div class="case-bar"></div>
+          <div class="case-bar"></div>
+          <div class="case-bar"></div>
+        </div>
+        <span class="case-audio-label">[ AUDIO: ON ]</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="case-container">
+    
+    <!-- Hero Section -->
+    <section class="case-hero">
+      <div class="hero-badge-row">
+        <span class="case-badge">UI/UX CASE STUDY</span>
+        <span class="role-badge">MOBILE PRODUCT DESIGN</span>
+        <span class="role-badge">INTERACTIVE PROTOTYPE</span>
+      </div>
+
+      <h1 class="case-title">ECOSTAY RETREAT</h1>
+      <p class="case-subtitle">
+        An intuitive mobile sanctuary reservation experience combining clean alpine aesthetics, dynamic habitat browsing, outdoor expedition pass booking, and transparent sustainability tracking.
+      </p>
+
+      <!-- Metadata Bento Grid -->
+      <div class="meta-grid">
+        <div class="meta-box">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="meta-label">PROJECT TYPE</div>
+          <div class="meta-value">Mobile Application UI/UX</div>
+        </div>
+
+        <div class="meta-box">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="meta-label">ROLE</div>
+          <div class="meta-value">Lead UI/UX &amp; Product Designer</div>
+        </div>
+
+        <div class="meta-box">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="meta-label">DESIGN TOOLS</div>
+          <div class="meta-value">Figma &bull; Prototyping &bull; Design System</div>
+        </div>
+
+        <div class="meta-box">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="meta-label">DELIVERABLES</div>
+          <div class="meta-value">High-Fidelity Screens &bull; UI Flows</div>
+        </div>
+      </div>
+
+      <!-- Interactive Mobile Device Showcase Stage (Flagship Trio Display) -->
+      <div class="mobile-showcase-stage">
+        <div class="hud-corner top-left"></div>
+        <div class="hud-corner top-right"></div>
+        <div class="hud-corner bottom-left"></div>
+        <div class="hud-corner bottom-right"></div>
+
+        <div class="stage-devices-row">
+          <!-- Device 01: Onboarding Flow -->
+          <div class="phone-item-wrap">
+            <div class="phone-mockup" data-title="SPLASH &amp; ONBOARDING FLOW">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="assets/projects/ecostay/screen-splash.png" alt="Splash &amp; Onboarding Experience" class="phone-screen-img">
+              </div>
+            </div>
+            <div class="phone-caption-bar">
+              <span class="phone-tag">01 // ONBOARDING FLOW</span>
+            </div>
+          </div>
+
+          <!-- Device 02: Primary Sanctuary Hub (Featured Center) -->
+          <div class="phone-item-wrap featured-wrap">
+            <div class="phone-mockup featured" data-title="SANCTUARY HOME DASHBOARD">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="assets/projects/ecostay/screen-dashboard.png" alt="Sanctuary Home Dashboard" class="phone-screen-img">
+              </div>
+            </div>
+            <div class="phone-caption-bar">
+              <span class="phone-tag">02 // SANCTUARY HUB (PRIMARY UI)</span>
+            </div>
+          </div>
+
+          <!-- Device 03: Habitat Catalog & Filters -->
+          <div class="phone-item-wrap">
+            <div class="phone-mockup" data-title="HABITAT CATALOG &amp; DYNAMIC FILTERS">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="assets/projects/ecostay/screen-rooms.png" alt="Habitat Catalog &amp; Filter Chips" class="phone-screen-img">
+              </div>
+            </div>
+            <div class="phone-caption-bar">
+              <span class="phone-tag">03 // HABITAT BROWSER</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage-footer-bar">
+          <span>INTERACTIVE SHOWCASE // NATIVE MOBILE EXPERIENCE (19.5:9 VIEWPORT)</span>
+          <span>CLICK ANY DEVICE TO INSPECT FULL RESOLUTION</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 01: Overview & Design Concept -->
+    <section id="overview" class="case-section">
+      <div class="section-hud-header">
+        <span class="section-index">01 // OVERVIEW &amp; DESIGN CONCEPT</span>
+        <h2 class="section-title">SUSTAINABLE LUXURY IN A FLUID INTERFACE</h2>
+        <p class="section-lead">
+          Reimagining how guests discover off-grid habitats and wilderness expeditions with a calm, friction-free mobile experience.
+        </p>
+      </div>
+
+      <div class="bento-overview-grid">
+        <div class="bento-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <h3 class="bento-card-title">&bull; THE USER PROBLEM &amp; CHALLENGE</h3>
+          <p>
+            Traditional resort booking applications often overwhelm travelers with cluttered lists, confusing add-on forms, and zero visibility into environmental practices. Eco-conscious guests sought a tranquil digital experience that made booking unique alpine habitats and guided outdoor expeditions as effortless and inspiring as the retreat itself.
+          </p>
+          <ul class="feature-list">
+            <li>Eliminated multi-step booking friction with glanceable card summaries.</li>
+            <li>Replaced confusing drop-down menus with immediate tactile filter chips.</li>
+            <li>Integrated transparent eco-metrics directly into the guest journey.</li>
+          </ul>
+        </div>
+
+        <div class="bento-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <h3 class="bento-card-title">&bull; THE UI/UX DESIGN SOLUTION</h3>
+          <p>
+            Crafted a cohesive visual system featuring high-contrast card structures, spacious touch targets, and subtle micro-feedback. The interface pairs warm alpine imagery with dark-mode elegance, ensuring readability whether navigating in bright outdoor sunlight or unwinding in a cabin at night.
+          </p>
+          <div class="tech-pills">
+            <span class="tech-pill">High-Contrast Visual Hierarchy</span>
+            <span class="tech-pill">Tactile Filter Chips</span>
+            <span class="tech-pill">Inline Micro-Validation</span>
+            <span class="tech-pill">Dynamic Badge Counters</span>
+            <span class="tech-pill">Accessible Dark Theme</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 02: Key Design Features & Functions -->
+    <section id="functions" class="case-section">
+      <div class="section-hud-header">
+        <span class="section-index">02 // KEY DESIGN FEATURES &amp; UX FLOWS</span>
+        <h2 class="section-title">CRAFTED INTERACTION PATTERNS</h2>
+        <p class="section-lead">
+          Every screen was designed around core user intents: effortless discovery, instant filtering, and transparent booking confirmation.
+        </p>
+      </div>
+
+      <div class="bento-overview-grid">
+        <div class="bento-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <h3 class="bento-card-title">&bull; DYNAMIC HABITAT FILTER CHIPS</h3>
+          <p>
+            Guests can switch instantly between Geo-Pods, Cedar Cabins, and Canopy Lodges with a single tap. Filter chips dynamically recalculate available unit badges in real time without refreshing the screen or interrupting browsing flow.
+          </p>
+        </div>
+
+        <div class="bento-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <h3 class="bento-card-title">&bull; OUTDOOR EXPEDITION SCHEDULER</h3>
+          <p>
+            Designed a streamlined booking modal for guided mountain trails, bird-watching, and wilderness workshops with bounded party-size controls and clear visual date selectors that prevent accidental scheduling conflicts.
+          </p>
+        </div>
+
+        <div class="bento-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <h3 class="bento-card-title">&bull; INTERACTIVE SUSTAINABILITY GUIDE</h3>
+          <p>
+            An integrated educational module featuring an interactive carbon footprint estimator, zero-waste sanctuary guidelines, and solar energy metrics that empower guests to track their positive environmental impact.
+          </p>
+        </div>
+
+        <div class="bento-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <h3 class="bento-card-title">&bull; INTUITIVE ONBOARDING &amp; AUTH</h3>
+          <p>
+            A calm, distraction-free onboarding sequence paired with inline form validation alerts that guide first-time guests smoothly into their profile without intimidating errors or unnecessary input fields.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 03: UI Showcase & Screen Gallery -->
+    <section id="gallery" class="case-section">
+      <div class="section-hud-header">
+        <span class="section-index">03 // HIGH-FIDELITY UI SHOWCASE</span>
+        <h2 class="section-title">CORE SCREEN GALLERY</h2>
+        <p class="section-lead">
+          Explore the high-fidelity screens from the project. Click on any screen to open the fullscreen interactive zoom viewer.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Screen 1: Splash -->
+        <div class="gallery-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="gallery-thumb-container">
+            <img src="assets/projects/ecostay/screen-splash.png" alt="Splash &amp; Onboarding Experience" class="gallery-thumb">
+            <div class="gallery-hover-overlay">
+              <span class="zoom-hint-btn">[ EXPAND SCREEN ]</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <div>
+              <div class="screen-number">SCREEN 01 // FIRST TOUCHPOINT</div>
+              <h3 class="screen-name">SPLASH &amp; ONBOARDING</h3>
+            </div>
+            <p class="screen-desc">Minimalist branded entry screen welcoming travelers with calm visual tones and animated entry transitions.</p>
+          </div>
+        </div>
+
+        <!-- Screen 2: Authentication -->
+        <div class="gallery-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="gallery-thumb-container">
+            <img src="assets/projects/ecostay/screen-auth.png" alt="User Sign In &amp; Registration" class="gallery-thumb">
+            <div class="gallery-hover-overlay">
+              <span class="zoom-hint-btn">[ EXPAND SCREEN ]</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <div>
+              <div class="screen-number">SCREEN 02 // ACCESS</div>
+              <h3 class="screen-name">SIGN IN &amp; REGISTRATION</h3>
+            </div>
+            <p class="screen-desc">Friction-free authentication interface with immediate visual guidance and clear feedback cues.</p>
+          </div>
+        </div>
+
+        <!-- Screen 3: Dashboard -->
+        <div class="gallery-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="gallery-thumb-container">
+            <img src="assets/projects/ecostay/screen-dashboard.png" alt="Home Sanctuary Hub" class="gallery-thumb">
+            <div class="gallery-hover-overlay">
+              <span class="zoom-hint-btn">[ EXPAND SCREEN ]</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <div>
+              <div class="screen-number">SCREEN 03 // CENTRAL HUB</div>
+              <h3 class="screen-name">SANCTUARY HOME DASHBOARD</h3>
+            </div>
+            <p class="screen-desc">Hero mountain banner, quick action reservation tiles, featured eco-lodges, and live sustainability metrics.</p>
+          </div>
+        </div>
+
+        <!-- Screen 4: Room Catalog -->
+        <div class="gallery-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="gallery-thumb-container">
+            <img src="assets/projects/ecostay/screen-rooms.png" alt="Habitat Catalog &amp; Filter Chips" class="gallery-thumb">
+            <div class="gallery-hover-overlay">
+              <span class="zoom-hint-btn">[ EXPAND SCREEN ]</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <div>
+              <div class="screen-number">SCREEN 04 // DISCOVERY</div>
+              <h3 class="screen-name">HABITAT FILTERING &amp; BROWSING</h3>
+            </div>
+            <p class="screen-desc">Tactile category chips filtering Alpine Geo-Pods, Cedar Cabins, and Canopy Lodges with real-time count badges.</p>
+          </div>
+        </div>
+
+        <!-- Screen 5: Activities -->
+        <div class="gallery-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="gallery-thumb-container">
+            <img src="assets/projects/ecostay/screen-activities.png" alt="Outdoor Activity Passes" class="gallery-thumb">
+            <div class="gallery-hover-overlay">
+              <span class="zoom-hint-btn">[ EXPAND SCREEN ]</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <div>
+              <div class="screen-number">SCREEN 05 // EXPEDITION</div>
+              <h3 class="screen-name">EXPEDITION PASS BOOKING</h3>
+            </div>
+            <p class="screen-desc">Guided hike reservation workflow with date selection, participant bounds, and equipment prep reminders.</p>
+          </div>
+        </div>
+
+        <!-- Screen 6: Sustainability -->
+        <div class="gallery-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="gallery-thumb-container">
+            <img src="assets/projects/ecostay/screen-sustainability.png" alt="Green Initiatives &amp; Guide" class="gallery-thumb">
+            <div class="gallery-hover-overlay">
+              <span class="zoom-hint-btn">[ EXPAND SCREEN ]</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <div>
+              <div class="screen-number">SCREEN 06 // CONSERVATION</div>
+              <h3 class="screen-name">ECO-IMPACT &amp; RESORT GUIDE</h3>
+            </div>
+            <p class="screen-desc">Engaging zero-waste tips, interactive carbon offset tracking, and localized environmental conservation guidelines.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Footer Navigation -->
+    <footer class="case-footer-nav">
+      <a href="index.html#projects" class="project-nav-link">
+        <span class="nav-direction">&larr; ALL PROJECTS</span>
+        <span class="nav-proj-title">RETURN TO VERTEXX LABS</span>
+      </a>
+
+      <a href="case-study-cozycomfort.html?v=38" class="project-nav-link next">
+        <span class="nav-direction">NEXT CASE STUDY &rarr;</span>
+        <span class="nav-proj-title">COZY COMFORT E-COMMERCE</span>
+      </a>
+    </footer>
+
+  </main>
+
+  <!-- Background Audio Element -->
+  <audio id="case-bg-audio" src="assets/suno_track.mp3" loop preload="auto" playsinline style="display:none;"></audio>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div id="lightbox-modal" class="lightbox-modal">
+    <button id="lightbox-close-btn" class="lightbox-close-btn">[ CLOSE ESC ]</button>
+    <div class="lightbox-content-box">
+      <img id="lightbox-img" src="" alt="Fullscreen Interface Preview" class="lightbox-img">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script src="case-study.js?v=40"></script>
+</body>
+</html>

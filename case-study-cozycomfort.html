@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cozy Comfort | E-Commerce UI/UX Case Study | Vertexx Labs</title>
+  <meta name="description" content="UI/UX case study for Cozy Comfort, a modern e-commerce storefront and operations dashboard platform featuring responsive browsing and live cart interactions.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="case-study.css?v=40">
+</head>
+<body>
+
+  <!-- 3D Cosmic Space Starfield Canvas (Matching Main Page) -->
+  <canvas id="space-canvas"></canvas>
+
+  <!-- Fixed Top HUD Navigation -->
+  <header class="case-nav">
+    <a href="index.html#projects" class="nav-back-btn">
+      <span>&larr; RETURN TO VERTEXX LABS</span>
+    </a>
+    
+    <div class="nav-dossier-badge">
+      <span class="blink-dot"></span>
+      <span>PROJECT // 02 OF 03 &bull; COZY COMFORT</span>
+    </div>
+
+    <div class="nav-right-group">
+      <nav class="nav-section-links">
+        <a href="#overview">[ OVERVIEW ]</a>
+        <a href="#functions">[ UX FUNCTIONS ]</a>
+        <a href="#gallery">[ UI SHOWCASE ]</a>
+      </nav>
+
+      <!-- HUD Audio Toggle Control -->
+      <button id="case-audio-toggle" class="case-audio-btn playing" aria-label="Toggle Audio" title="Toggle audio soundtrack">
+        <div class="case-visualizer-bars">
+          <div class="case-bar"></div>
+          <div class="case-bar"></div>
+          <div class="case-bar"></div>
+          <div class="case-bar"></div>
+        </div>
+        <span class="case-audio-label">[ AUDIO: ON ]</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="case-container">
+    
+    <!-- Hero Section -->
+    <section class="case-hero">
+      <div class="hero-badge-row">
+        <span class="case-badge">UI/UX CASE STUDY</span>
+        <span class="role-badge">E-COMMERCE PRODUCT DESIGN</span>
+        <span class="role-badge">INTERACTIVE PROTOTYPE</span>
+      </div>
+
+      <h1 class="case-title">COZY COMFORT</h1>
+      <p class="case-subtitle">
+        A modern, high-contrast e-commerce shopping experience and operations dashboard designed for fluid product discovery, effortless checkout, and transparent fulfillment tracking.
+      </p>
+
+      <!-- Metadata Bento Grid -->
+      <div class="meta-grid">
+        <div class="meta-box">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="meta-label">PROJECT TYPE</div>
+          <div class="meta-value">E-Commerce Web Platform</div>
+        </div>
+
+        <div class="meta-box">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="meta-label">ROLE</div>
+          <div class="meta-value">Lead UI/UX &amp; Product Designer</div>
+        </div>
+
+        <div class="meta-box">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="meta-label">DESIGN TOOLS</div>
+          <div class="meta-value">Figma &bull; Design System &bull; CSS Grid</div>
+        </div>
+
+        <div class="meta-box">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="meta-label">DELIVERABLES</div>
+          <div class="meta-value">Storefront UI &bull; Admin Dashboards</div>
+        </div>
+      </div>
+
+      <!-- Hero Mockup Display Frame -->
+      <div class="hero-mockup-wrapper">
+        <div class="hud-corner top-left"></div>
+        <div class="hud-corner top-right"></div>
+        <div class="hud-corner bottom-left"></div>
+        <div class="hud-corner bottom-right"></div>
+        <img src="assets/projects/cozycomfort/hero-mockup.png" alt="Cozy Comfort E-Commerce Storefront Interface" class="hero-mockup-img">
+        <div class="hero-mockup-caption">
+          <span>HERO MOCKUP // PRODUCTION STOREFRONT CATALOG &amp; CART VIEW</span>
+          <span class="badge">CLICK FOR FULLSCREEN ZOOM</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 01: Overview & Design Concept -->
+    <section id="overview" class="case-section">
+      <div class="section-hud-header">
+        <span class="section-index">01 // OVERVIEW &amp; DESIGN CONCEPT</span>
+        <h2 class="section-title">FRICTIONLESS COMMERCE &amp; OPERATIONAL CLARITY</h2>
+        <p class="section-lead">
+          Bridging the gap between an inviting, high-conversion customer storefront and an efficient, clarity-focused warehouse operations management console.
+        </p>
+      </div>
+
+      <div class="bento-overview-grid">
+        <div class="bento-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <h3 class="bento-card-title">&bull; THE USER PROBLEM &amp; CHALLENGE</h3>
+          <p>
+            Online shoppers often abandon carts when faced with cluttered catalogs, surprise inventory shortages at checkout, and clunky interfaces. Concurrently, warehouse teams struggle with dense, illegible legacy spreadsheets that obscure real-time order priority and stock status.
+          </p>
+          <ul class="feature-list">
+            <li>Eliminated cart abandonment through instant live stock indicators.</li>
+            <li>Created a single design language linking customer and warehouse interfaces.</li>
+            <li>Optimized layout reflow so products look stunning across mobile and desktop.</li>
+          </ul>
+        </div>
+
+        <div class="bento-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <h3 class="bento-card-title">&bull; THE UI/UX DESIGN SOLUTION</h3>
+          <p>
+            Designed a dual-portal ecosystem: a warm, modern customer shopping experience that emphasizes product texture and easy checkout, and a high-efficiency dark-mode administrative dashboard providing warehouse managers with glanceable stock controls and order queues.
+          </p>
+          <div class="tech-pills">
+            <span class="tech-pill">Dual-Portal Design System</span>
+            <span class="tech-pill">Instant Cart Drawer Interaction</span>
+            <span class="tech-pill">Responsive CSS Grid Reflow</span>
+            <span class="tech-pill">Glanceable Inventory Health</span>
+            <span class="tech-pill">Clean Micro-Interactions</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 02: Key Design Features & Functions -->
+    <section id="functions" class="case-section">
+      <div class="section-hud-header">
+        <span class="section-index">02 // KEY DESIGN FEATURES &amp; UX FLOWS</span>
+        <h2 class="section-title">PURPOSE-BUILT USER INTERACTIONS</h2>
+        <p class="section-lead">
+          Thoughtfully engineered user flows prioritizing speed, confidence, and visual comfort across every touchpoint.
+        </p>
+      </div>
+
+      <div class="bento-overview-grid">
+        <div class="bento-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <h3 class="bento-card-title">&bull; DYNAMIC STOREFRONT CATALOG</h3>
+          <p>
+            High-definition product display cards featuring real-time stock badges, transparent pricing, and instant add-to-cart feedback that never interrupts user discovery or forces full page reloads.
+          </p>
+        </div>
+
+        <div class="bento-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <h3 class="bento-card-title">&bull; FRICTIONLESS CART &amp; CHECKOUT</h3>
+          <p>
+            A streamlined checkout flow with instant quantity adjustments, clear order summaries, and transparent delivery estimates designed to reduce cart friction and build customer trust.
+          </p>
+        </div>
+
+        <div class="bento-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <h3 class="bento-card-title">&bull; WAREHOUSE OPERATIONS CONSOLE</h3>
+          <p>
+            A high-contrast management dashboard enabling warehouse operators to monitor live fulfillment status, adjust safety thresholds, and execute manual stock updates with zero visual clutter.
+          </p>
+        </div>
+
+        <div class="bento-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <h3 class="bento-card-title">&bull; RESPONSIVE VIEWPORT REFLOW</h3>
+          <p>
+            Fluid modular grid components that dynamically reshape across mobile handsets, tablets, and ultrawide desktop displays without sacrificing image fidelity or action button accessibility.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 03: UI Showcase & Screen Gallery -->
+    <section id="gallery" class="case-section">
+      <div class="section-hud-header">
+        <span class="section-index">03 // HIGH-FIDELITY UI SHOWCASE</span>
+        <h2 class="section-title">INTERACTIVE DEMO &amp; SCREEN GALLERY</h2>
+        <p class="section-lead">
+          Watch the live recorded checkout flow in action, or click on any high-fidelity screen below to inspect the interface details in full resolution.
+        </p>
+      </div>
+
+      <!-- Live Recorded UI Demo Animation -->
+      <div class="demo-showcase-box" style="margin-bottom: 40px;">
+        <div class="hud-corner top-left"></div>
+        <div class="hud-corner top-right"></div>
+        <div class="hud-corner bottom-left"></div>
+        <div class="hud-corner bottom-right"></div>
+        <img src="assets/projects/cozycomfort/demo-animation.webp" alt="Cozy Comfort Live Storefront and Inventory Update Flow" class="demo-showcase-media">
+        <div class="demo-status-bar">
+          <span class="live-indicator">LIVE INTERACTION DEMO // STOREFRONT ORDERING &amp; WAREHOUSE SYNC</span>
+          <span>FORMAT: HIGH-RES 60 FPS ANIMATION</span>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Screen 1: Storefront -->
+        <div class="gallery-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="gallery-thumb-container">
+            <img src="assets/projects/cozycomfort/screen-storefront.png" alt="Storefront Catalog Interface" class="gallery-thumb">
+            <div class="gallery-hover-overlay">
+              <span class="zoom-hint-btn">[ EXPAND SCREEN ]</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <div>
+              <div class="screen-number">PORTAL 01 // STOREFRONT</div>
+              <h3 class="screen-name">DYNAMIC PRODUCT CATALOG</h3>
+            </div>
+            <p class="screen-desc">Responsive catalog interface presenting blanket variants, material specs, pricing tiers, and real-time stock tags.</p>
+          </div>
+        </div>
+
+        <!-- Screen 2: Checkout -->
+        <div class="gallery-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="gallery-thumb-container">
+            <img src="assets/projects/cozycomfort/screen-checkout.png" alt="Cart and Checkout Flow" class="gallery-thumb">
+            <div class="gallery-hover-overlay">
+              <span class="zoom-hint-btn">[ EXPAND SCREEN ]</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <div>
+              <div class="screen-number">PORTAL 02 // CHECKOUT</div>
+              <h3 class="screen-name">CART &amp; CHECKOUT EXPERIENCE</h3>
+            </div>
+            <p class="screen-desc">Intuitive shopping cart review with quantity toggles, shipping calculation, and instant purchase confirmation.</p>
+          </div>
+        </div>
+
+        <!-- Screen 3: Distributor Operations -->
+        <div class="gallery-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="gallery-thumb-container">
+            <img src="assets/projects/cozycomfort/screen-distributor.png" alt="Distributor Warehouse Console" class="gallery-thumb">
+            <div class="gallery-hover-overlay">
+              <span class="zoom-hint-btn">[ EXPAND SCREEN ]</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <div>
+              <div class="screen-number">PORTAL 03 // OPERATIONS</div>
+              <h3 class="screen-name">DISTRIBUTOR WAREHOUSE PORTAL</h3>
+            </div>
+            <p class="screen-desc">Dedicated operations dashboard for updating warehouse stock levels, monitoring backorders, and tracking fulfillment.</p>
+          </div>
+        </div>
+
+        <!-- Screen 4: Security Gateway -->
+        <div class="gallery-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="gallery-thumb-container">
+            <img src="assets/projects/cozycomfort/screen-distributor-login.png" alt="Operator Authentication Gateway" class="gallery-thumb">
+            <div class="gallery-hover-overlay">
+              <span class="zoom-hint-btn">[ EXPAND SCREEN ]</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <div>
+              <div class="screen-number">PORTAL 04 // SECURITY</div>
+              <h3 class="screen-name">OPERATOR AUTHENTICATION GATEWAY</h3>
+            </div>
+            <p class="screen-desc">Minimalist, secure login interface providing authenticated staff access to sensitive inventory parameters.</p>
+          </div>
+        </div>
+
+        <!-- Screen 5: Responsive Shell -->
+        <div class="gallery-card">
+          <div class="hud-corner top-left"></div>
+          <div class="hud-corner top-right"></div>
+          <div class="hud-corner bottom-left"></div>
+          <div class="hud-corner bottom-right"></div>
+          <div class="gallery-thumb-container">
+            <img src="assets/projects/cozycomfort/screen-responsive-shell.png" alt="Responsive Client Viewport" class="gallery-thumb">
+            <div class="gallery-hover-overlay">
+              <span class="zoom-hint-btn">[ EXPAND SCREEN ]</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <div>
+              <div class="screen-number">PORTAL 05 // RESPONSIVE</div>
+              <h3 class="screen-name">MOBILE VIEWPORT ADAPTATION</h3>
+            </div>
+            <p class="screen-desc">Modular grid reflow ensuring product photography and action triggers remain perfectly proportioned on mobile devices.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Footer Navigation -->
+    <footer class="case-footer-nav">
+      <a href="case-study-ecostay.html?v=38" class="project-nav-link">
+        <span class="nav-direction">&larr; PREVIOUS CASE STUDY</span>
+        <span class="nav-proj-title">ECOSTAY RETREAT</span>
+      </a>
+
+      <a href="case-study-skillpro.html?v=38" class="project-nav-link next">
+        <span class="nav-direction">NEXT CASE STUDY &rarr;</span>
+        <span class="nav-proj-title">SKILLPRO INSTITUTE</span>
+      </a>
+    </footer>
+
+  </main>
+
+  <!-- Background Audio Element -->
+  <audio id="case-bg-audio" src="assets/suno_track.mp3" loop preload="auto" playsinline style="display:none;"></audio>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div id="lightbox-modal" class="lightbox-modal">
+    <button id="lightbox-close-btn" class="lightbox-close-btn">[ CLOSE ESC ]</button>
+    <div class="lightbox-content-box">
+      <img id="lightbox-img" src="" alt="Fullscreen Interface Preview" class="lightbox-img">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script src="case-study.js?v=40"></script>
+</body>
+</html>

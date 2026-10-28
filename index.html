@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertexx Labs | Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&family=Share+Tech+Mono&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style_v19.css?v=41">
+  
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/examples/jsm/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+
+<body class="no-scroll">
+  <!-- Technical Terminal Loader -->
+  <div id="loading-overlay">
+    <div class="loader-content">
+      <div class="loader-top">
+        <span class="wait-label">[ PLEASE WAIT ]</span>
+        <div class="loader-status">
+          <div class="spinner"></div>
+          <span>Loading Vertexx Experience...</span>
+        </div>
+      </div>
+      <div class="progress-container">
+        <div id="progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Audio Element -->
+  <audio id="bg-audio" src="assets/suno_track.mp3" loop preload="auto" playsinline style="display:none;"></audio>
+
+  <!-- HUD Audio Toggle Control -->
+  <button id="audio-toggle" class="audio-control visible muted" aria-label="Toggle Audio Experience" title="Click to toggle audio">
+    <div class="visualizer-bars">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <span class="audio-label">[ AUDIO: OFF ]</span>
+  </button>
+
+  <!-- Live Local Time & Remote Availability HUD Telemetry Badge -->
+  <div id="hud-telemetry-badge" class="hud-telemetry-badge" aria-live="polite">
+    <span class="telemetry-status-dot" title="Available for Remote / Async Work"></span>
+    <span class="telemetry-location">COLOMBO, SRI LANKA</span>
+    <span class="telemetry-divider">//</span>
+    <span id="colombo-live-time" class="telemetry-clock">--:--:--</span>
+    <span class="telemetry-tz">(GMT+5:30)</span>
+    <span class="telemetry-divider telemetry-hide-sm">&bull;</span>
+    <span class="telemetry-availability">AVAILABLE FOR REMOTE / ASYNC WORK</span>
+  </div>
+
+  <nav id="main-nav">
+    <a href="#home" class="nav-link"><span>01 // HOME</span></a>
+    <a href="#about" class="nav-link"><span>02 // ABOUT</span></a>
+    <a href="#projects" class="nav-link"><span>03 // PROJECTS</span></a>
+    <a href="#contact" class="nav-link"><span>04 // CONTACT</span></a>
+  </nav>
+
+  <!-- 3D Starfield Background Container -->
+  <div id="canvas-container"></div>
+
+  <main id="scroll-container">
+    <!-- Hero / Home Section -->
+    <section id="home" class="snap-section">
+      <div id="hero" style="display:none;"></div>
+      <!-- Centered Logo Container (Hero) -->
+      <div class="logo-container" id="branding">
+        <div class="logo-cropper">
+          <!--
+            VERTEXX BRAND LOGO (v14 = restored v12)
+            Original brand paths from Vector 1, 2, 3 SVG files.
+            fill="white" on each path = solid white with star cutout shape.
+          -->
+          <svg class="vertexx-logo" viewBox="0 0 660 740" xmlns="http://www.w3.org/2000/svg">
+
+            <!-- LEFT PIECE (Vector 1) -->
+            <g id="piece-left">
+              <path
+                transform="translate(84, 210)"
+                d="M197.5 95.8682C192.3 90.2682 184.667 85.2016 181.5 83.3682L37.613 3.20972C34.4086 0.929227 25.3 -2.03176 14.5 4.36824C3.7 10.7682 0.666667 22.0349 0.5 26.8682V213.868C3.7 238.668 26.1667 265.868 37 276.368L188 361.868C193.667 362.868 206.6 363.768 213 359.368C219.4 354.968 223.333 345.535 224.5 341.368C224.333 280.868 224.1 158.468 224.5 152.868C224.9 147.268 223 141.535 222 139.368L135.5 188.868C131.333 190.702 121.4 192.068 115 182.868C108.6 173.668 114.667 166.035 118.5 163.368L209 111.368C207.333 108.535 202.7 101.468 197.5 95.8682Z"
+                fill="white"
+                style="fill: #FFFFFF !important;"
+              />
+            </g>
+
+            <!-- RIGHT PIECE (Vector 2) -->
+            <g id="piece-right">
+              <path
+                transform="translate(350, 210)"
+                d="M27.5544 95.8682C32.7544 90.2682 40.3878 85.2016 43.5544 83.3682L187.441 3.20972C190.646 0.929227 199.754 -2.03176 210.554 4.36824C221.354 10.7682 224.388 22.0349 224.554 26.8682V213.868C221.354 238.668 198.888 265.868 188.054 276.368L37.0544 361.868C31.3878 362.868 18.4544 363.768 12.0544 359.368C5.65445 354.968 1.72112 345.535 0.554443 341.368C0.721115 280.868 0.954437 158.468 0.554443 152.868C0.154449 147.268 2.05444 141.535 3.05444 139.368L89.5544 188.868C93.7211 190.702 103.654 192.068 110.054 182.868C116.454 173.668 110.388 166.035 106.554 163.368L16.0544 111.368C17.7211 108.535 22.3544 101.468 27.5544 95.8682Z"
+                fill="white"
+                style="fill: #FFFFFF !important;"
+              />
+            </g>
+
+            <!-- TOP PIECE (Vector 3) -->
+            <g id="piece-top">
+              <path
+                transform="translate(126, 50)"
+                d="M168.712 234.527C161.302 232.658 153.19 228.4 150.061 226.504L10.6111 138.853C7.07122 137.139 0.0967603 130.575 0.518225 118.028C0.93969 105.481 9.36176 97.4061 13.5201 94.9369L177.504 5.05855C200.79 -4.055 235.441 2.57329 249.855 7.02663L397.408 98.3477C401.008 102.836 408.014 113.745 407.231 121.472C406.449 129.199 400.067 137.183 396.974 140.208C343.84 169.14 236.393 227.765 231.674 230.808C226.956 233.85 221.015 234.939 218.634 235.104L220.467 135.459C220.072 130.924 216.496 121.556 205.352 120.366C194.209 119.175 190.431 128.164 189.935 132.807L187.832 237.162C184.546 237.062 176.122 236.395 168.712 234.527Z"
+                fill="white"
+                style="fill: #FFFFFF !important;"
+              />
+            </g>
+
+          </svg>
+        </div>
+        <div class="hero-subtitle">
+          <span class="static-we">WE</span> <span id="hero-word">IMAGINE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Sections -->
+    <section id="about" class="snap-section">
+      <div id="astronaut-placeholder">
+      </div>
+      <div class="about-content">
+        <!-- HUD Corner Brackets -->
+        <div class="hud-corner top-left"></div>
+        <div class="hud-corner top-right"></div>
+        <div class="hud-corner bottom-left"></div>
+        <div class="hud-corner bottom-right"></div>
+        
+        <!-- Animated Border SVG -->
+        <svg class="hud-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <rect class="hud-border-path" x="0" y="0" width="100" height="100" />
+        </svg>
+
+        <h2 class="about-title">ABOUT</h2>
+        <div class="about-text-container">
+          <p>
+            VERTEXX LABS IS PIONEERING THE NEXT GENERATION OF SPATIAL COMPUTING AND CINEMATIC EXPERIENCES.
+          </p>
+          <p>
+            WE BRIDGE THE GAP BETWEEN IMAGINATION AND DIGITAL REALITY THROUGH CUTTING-EDGE TECHNOLOGY AND PREMIUM DESIGN AESTHETICS.
+          </p>
+        </div>
+
+        <!-- HUD Metadata Footer -->
+        <div class="hud-metadata">
+          <span class="meta-item">[ LOC: 6.9271° N ]</span>
+          <span class="meta-item">[ SYS: ACTIVE ]</span>
+          <span class="meta-item">[ VER: 2.0.1 ]</span>
+        </div>
+      </div>
+    </section>
+    <section id="projects" class="project-section snap-section">
+      <div class="projects-container">
+        <div class="projects-grid">
+          <!-- Project 01: EcoStay Retreat (Flagship 2-Col Split Showcase) -->
+          <div class="project-card large reveal-flicker" id="proj-01" 
+               data-title="ECOSTAY RETREAT" 
+               data-tech="UI/UX Design, Mobile App, Design System, Interactive Prototype" 
+               data-desc="An intuitive mobile sanctuary reservation experience combining clean alpine aesthetics, dynamic room browsing, and interactive sustainability guides."
+               data-case-study="case-study-ecostay.html?v=38">
+            <div class="hud-corner top-left"></div>
+            <div class="hud-corner top-right"></div>
+            <div class="hud-corner bottom-left"></div>
+            <div class="hud-corner bottom-right"></div>
+            <svg class="hud-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <rect class="hud-border-path" x="0" y="0" width="100" height="100" />
+            </svg>
+            
+            <div class="card-split-layout">
+              <!-- Left Info Zone -->
+              <div class="project-info-zone">
+                <span class="project-badge">01 // MOBILE PRODUCT DESIGN</span>
+                <h3 class="project-title">ECOSTAY RETREAT</h3>
+                <p class="project-desc">Alpine sanctuary reservation app with real-time habitat filtering and expedition pass scheduling.</p>
+                <div class="project-pills">
+                  <span class="pill">MOBILE UI</span>
+                  <span class="pill">DESIGN SYSTEM</span>
+                  <span class="pill">PROTOTYPE</span>
+                </div>
+                <div class="project-card-footer">
+                  <a href="case-study-ecostay.html?v=38" class="case-study-link-chip">
+                    <span>VIEW CASE STUDY &rarr;</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right Visual Zone (Device Mockup Frame) -->
+              <div class="project-visual-zone">
+                <div class="mockup-frame mobile-preview-frame">
+                  <div class="mockup-header-bar">
+                    <span class="mockup-status-dot"></span>
+                    <span class="mockup-header-title">ECOSTAY // MOBILE UI</span>
+                  </div>
+                  <img src="assets/projects/ecostay/screen-dashboard.png" alt="EcoStay Retreat Mobile UI Preview" class="mockup-preview-img">
+                </div>
+              </div>
+            </div>
+
+            <div class="hover-scanline"></div>
+          </div>
+
+          <!-- Project 02: Cozy Comfort (1-Col Stacked Showcase) -->
+          <div class="project-card small reveal-flicker" id="proj-02" 
+               data-title="COZY COMFORT" 
+               data-tech="E-Commerce UI, Responsive Web, UX Flows, Multi-Portal Design" 
+               data-desc="A modern, high-contrast e-commerce shopping experience and operations dashboard featuring responsive catalog browsing, fluid cart interactions, and live inventory portals."
+               data-case-study="case-study-cozycomfort.html?v=38">
+            <div class="hud-corner top-left"></div>
+            <div class="hud-corner top-right"></div>
+            <div class="hud-corner bottom-left"></div>
+            <div class="hud-corner bottom-right"></div>
+            <svg class="hud-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <rect class="hud-border-path" x="0" y="0" width="100" height="100" />
+            </svg>
+
+            <div class="card-stacked-layout">
+              <!-- Top Visual Zone -->
+              <div class="project-visual-zone compact-top">
+                <div class="mockup-frame web-preview-frame">
+                  <div class="mockup-header-bar">
+                    <div class="window-dots">
+                      <span class="dot red"></span>
+                      <span class="dot yellow"></span>
+                      <span class="dot green"></span>
+                    </div>
+                    <span class="mockup-header-title">COZY COMFORT // STOREFRONT</span>
+                  </div>
+                  <img src="assets/projects/cozycomfort/hero-mockup.png" alt="Cozy Comfort Storefront Preview" class="mockup-preview-img">
+                </div>
+              </div>
+
+              <!-- Bottom Info Zone -->
+              <div class="project-info-zone">
+                <span class="project-badge">02 // E-COMMERCE UI</span>
+                <h3 class="project-title">COZY COMFORT</h3>
+                <p class="project-desc">Modern e-commerce platform &amp; warehouse operations console.</p>
+                <div class="project-card-footer">
+                  <a href="case-study-cozycomfort.html?v=38" class="case-study-link-chip">
+                    <span>VIEW CASE STUDY &rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="hover-scanline"></div>
+          </div>
+
+          <!-- Project 03: SkillPro Institute (3-Col Full Width Split Showcase) -->
+          <div class="project-card medium reveal-flicker" id="proj-03" 
+               data-title="SKILLPRO INSTITUTE" 
+               data-tech="Web UI/UX, Design System, Search Matrix UX, Form Design" 
+               data-desc="A human-centered vocational education portal featuring an interactive multi-criteria course search engine, clear program hierarchies, and instant inline validation feedback."
+               data-case-study="case-study-skillpro.html?v=38">
+            <div class="hud-corner top-left"></div>
+            <div class="hud-corner top-right"></div>
+            <div class="hud-corner bottom-left"></div>
+            <div class="hud-corner bottom-right"></div>
+            <svg class="hud-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <rect class="hud-border-path" x="0" y="0" width="100" height="100" />
+            </svg>
+
+            <div class="card-split-layout wide-split">
+              <!-- Left Info Zone -->
+              <div class="project-info-zone">
+                <span class="project-badge">03 // WEB APPLICATION UI/UX</span>
+                <h3 class="project-title">SKILLPRO INSTITUTE</h3>
+                <p class="project-desc">Vocational training portal engineered with multi-criteria course discovery across island campuses and empathetic inline validation.</p>
+                <div class="project-pills">
+                  <span class="pill">COURSE DISCOVERY UX</span>
+                  <span class="pill">FORM VALIDATION</span>
+                  <span class="pill">CAMPUS DIRECTORY</span>
+                </div>
+                <div class="project-card-footer">
+                  <a href="case-study-skillpro.html?v=38" class="case-study-link-chip">
+                    <span>VIEW CASE STUDY &rarr;</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right Visual Zone (Browser Mockup Frame) -->
+              <div class="project-visual-zone wide-visual">
+                <div class="mockup-frame browser-preview-frame">
+                  <div class="mockup-header-bar">
+                    <div class="window-dots">
+                      <span class="dot red"></span>
+                      <span class="dot yellow"></span>
+                      <span class="dot green"></span>
+                    </div>
+                    <span class="mockup-header-title">SKILLPRO // EDUCATION PORTAL</span>
+                  </div>
+                  <img src="assets/projects/skillpro/hero-mockup.png" alt="SkillPro Institute Web Portal Preview" class="mockup-preview-img">
+                </div>
+              </div>
+            </div>
+
+            <div class="hover-scanline"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="snap-section">
+      <div class="contact-content-wrapper">
+        <div class="contact-left">
+          <!-- Astronaut goes here visually via 3D space -->
+        </div>
+        <div class="contact-right">
+          <div class="contact-hud-card">
+            <!-- HUD Corner Brackets -->
+            <div class="hud-corner top-left"></div>
+            <div class="hud-corner top-right"></div>
+            <div class="hud-corner bottom-left"></div>
+            <div class="hud-corner bottom-right"></div>
+            
+            <!-- Animated Border SVG -->
+            <svg class="hud-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <rect class="hud-border-path" x="0" y="0" width="100" height="100" />
+            </svg>
+
+            <div class="contact-hud-header">
+              <span class="contact-channel-tag">CH // 04 &bull; COMMS TERMINAL</span>
+              <span id="uplink-status-pill" class="uplink-status-pill">
+                <span class="uplink-status-dot"></span>
+                <span id="uplink-status-text">SIGNAL: STANDBY</span>
+              </span>
+            </div>
+
+            <h2 class="contact-title">CONTACT</h2>
+            <p class="contact-subtitle">
+              ESTABLISH DIRECT TRANSMISSION FOR GLOBAL REMOTE &amp; ASYNC COLLABORATIONS.
+            </p>
+
+            <button id="initialize-uplink-btn" class="uplink-btn">
+              <span class="uplink-btn-icon">&#9670;</span>
+              <span class="btn-text">INITIALIZE UPLINK</span>
+              <div class="btn-glitch-effect"></div>
+            </button>
+
+            <div id="social-links-container" class="hidden-links">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                <span class="social-link-code">01 // GIT</span>
+                <span class="social-link-name">GITHUB</span>
+                <span class="social-link-arrow">&nearr;</span>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                <span class="social-link-code">02 // NET</span>
+                <span class="social-link-name">LINKEDIN</span>
+                <span class="social-link-arrow">&nearr;</span>
+              </a>
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                <span class="social-link-code">03 // COM</span>
+                <span class="social-link-name">TWITTER</span>
+                <span class="social-link-arrow">&nearr;</span>
+              </a>
+            </div>
+
+            <div class="contact-hud-footer">
+              <span>[ BASE: COLOMBO, LK &bull; GMT+5:30 ]</span>
+              <span>[ MODE: REMOTE / ASYNC ]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Deep Dive Overlay -->
+  <div id="project-overlay" class="glass-overlay">
+    <div class="overlay-content">
+      <button id="close-overlay" class="overlay-close">
+        <span class="btn-text">BACK TO ARCHIVES</span>
+      </button>
+      
+      <!-- HUD Corner Brackets -->
+      <div class="hud-corner top-left"></div>
+      <div class="hud-corner top-right"></div>
+      <div class="hud-corner bottom-left"></div>
+      <div class="hud-corner bottom-right"></div>
+
+      <h2 id="overlay-title" class="overlay-title">PROJECT NAME</h2>
+      
+      <div id="overlay-tech-stack" class="tech-stack-container">
+        <!-- Glowing tags injected via JS -->
+      </div>
+      
+      <p id="overlay-description" class="overlay-description">Brief description goes here.</p>
+      
+      <div class="overlay-actions">
+        <a id="overlay-action-btn" href="case-study-ecostay.html?v=38" class="uplink-btn overlay-btn primary-glow">
+          <span class="btn-text">EXPLORE FULL CASE STUDY &rarr;</span>
+          <div class="btn-glitch-effect"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script type="module" src="astronaut_v5.js?v=40"></script>
+</body>
+
+</html>
